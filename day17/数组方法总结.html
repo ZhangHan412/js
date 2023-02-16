@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /***
+         * 数组方法
+         * toString() 数组转化为字符串 逗号分隔开每一项
+         * valueOf() 返回数组对象值本身
+         * （1）栈操作 先进后出
+         * push() 从后往前插入
+         * pop() 取出数组中的最后一项 修改length属性
+         * 
+         * （2）队列操作 先进先出
+         * push()
+         * shift() 取出数组中的第一个元素 修改length属性
+         * unshift() 在数组最前面插入一项 返回数组的长度
+         * 
+         * （3）排序方法
+         * reverse() 反转数组
+         * sort() 排序数组 从小到大排序
+         * 带参数的sort是如何实现的？
+         * 
+         * （4）操作方法
+         * concat() 把参数拼接到当前数组
+         * slice() 从当前数组中截取一个新的数组，不影响原来的数组，参数start从0开始,end从1开始
+         * splice()	删除或替换当前数组的某些项目，参数start, deleteCount, options(要替换的项目)
+         * 
+         * （5）位置方法
+         * indexOf()、lastIndexOf() 没找到返回-1
+         * 
+         * （6）迭代方法 不会修改原数组
+         * every()、filter()、forEach()、map()、reduce()、some()
+         * 
+         * （7）数组的连接
+         * join()
+         * */
+
+         //valueOf toString 所有的对象都有这两个方法
+         var arr=[1,2,3,4,5];
+         console.log(arr.valueOf());
+         // push pop shift unshift
+         arr.push(99);
+         console.log(arr.toString());
+
+         var value=arr.pop()
+         console.log(value);
+
+         arr.shift();
+         console.log(arr.toString());
+
+         arr.unshift(11);
+         console.log(arr.toString());
+    </script>
+</body>
+
+</html>

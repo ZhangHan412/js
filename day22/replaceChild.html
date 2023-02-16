@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <p class="des"> 替换1 </p>
+        <p class="des"> 替换2 </p>
+    </div>
+    <script>
+        /***
+         * replaceChild 替换 父元素.replaceChild(newEle,ele); 
+         * 用 newEle 替换 ele
+         * 如果newEle已经存在于页面 则会将 ele 覆盖掉
+        */
+        var oWrap = document.querySelector('#wrap');
+        var aDes = oWrap.querySelectorAll('.des');
+        // oWrap.replaceChild(aDes[0], aDes[1]);
+        console.log(oWrap);
+        var newDes = document.createElement('p');
+        newDes.innerHTML = 'hhhhhh';
+        oWrap.replaceChild(newDes, aDes[0]);
+        console.log(oWrap);
+    </script>
+</body>
+
+</html>

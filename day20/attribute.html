@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="/vue/vue-text/src/assets/logo.png" class="imgClass" id="imgId"
+        style="width: 100px;height: 100px;background-color: aqua;" title="我要进大厂！">
+    <script>
+        /***
+         * getAttribute() 方法可以获取到标签的属性值 
+         * 与直接用 元素.属性 的区别在于
+         * getAttribute() 获取到的是标签的属性值 
+         * 元素.属性 是元素对象的属性值 是经过js执行引擎处理过的
+         * 
+         * 
+         * 拓展： 标签属性 元素对象属性
+         * 任何一个DOM元素都有两个属性 一个是元素对象属性 一个是标签属性
+         * 直接写在标签上的属性叫做 标签属性 
+         * 标签属性 和 元素对象属性 是两套不同的系统
+         * 
+         * 标签系统 用于展现 元素对象系统 用于存储数据和设置
+         * 
+         * 任何一个DOM元素都是对象模型 都可以自主的添加设置对象的属性和值
+         * 
+         * 
+         * 标签属性 Attribute
+         * 
+         * 设置 标签属性 元素.setAttribute(属性名,属性值);
+         * 属性名 的命名不能使用驼峰式命名 通常用 - 隔开 例如: img-list
+         * 属性值 不能出现大写 必须用字符串
+         * 
+         * 获取 标签属性值 元素.getAttribute(属性名);
+         * 
+         * 删除 标签属性值 元素.removeAttribute(属性名)
+         * 
+         * 元素对象属性 
+         * 元素对象属性不会显示在标签上
+         * 因为所有的DOM都是Object 所以设置属性都是按照对象的格式来设置
+         * 
+         * 当遇到 标签属性 和 元素对象属性 冲突时 以对象属性为主
+        */
+        var oImg = document.querySelector('img');
+        // 获取图片路径值 
+        // 元素.src 拿到的是元素对象的属性值 处理过的
+        console.log(oImg.src);
+        // 元素.getAttribute('src') 拿到的是标签的属性值
+        console.log(oImg.getAttribute('src'));
+        console.log(oImg.width);
+        console.log(oImg.getAttribute('width'));
+    </script>
+</body>
+
+</html>

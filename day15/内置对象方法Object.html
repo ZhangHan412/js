@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Object方法
+        /***
+         * Object.is()
+         * 判断是否为同一个值
+        */
+       console.log(Object.is(NaN,NaN));//true
+       /***
+        * Object.freeze()冻结对象 里面的值不能被修改
+        * 返回冻结的对象
+       */
+      var a={
+          name:'zh'
+      };
+      Object.freeze(a)
+      a.name='zhh';
+      console.log(a.name);
+      console.log(Object.freeze(a));
+      /***
+       * 合并数组 concat 合并对象 assign
+       * 拼接后都会返回一个新的目标对象
+      */
+     var arr=[1,2,3];
+     var arr1=[4,5,6];
+     var obj={
+         name:'zh'
+     };
+     var obj1={
+         age:24
+     };
+     var newArr=arr.concat(arr1);
+     //Object.assign(目标对象,添加对象)
+     var newObj=Object.assign(obj,obj1)
+     console.log(newArr);
+     console.log(newObj);
+
+     /***
+      * Object.keys()
+      * 会把对象中的键名 序列化成一个数组
+     */
+    var obj2={
+        a:1,
+        b:2,
+        c:3
+    };
+    console.log(Object.keys(obj2));//['a','b','c']
+    </script>
+</body>
+</html>

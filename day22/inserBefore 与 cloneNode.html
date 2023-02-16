@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <p class="des">123</p>
+    </div>
+    <script>
+        /***
+         * 在 wrap 中拷贝一个 des 插入到 des 之前
+         * 拷贝 元素.cloneNode()
+         * 父元素.insertBefore(B,A) 将拷贝的元素插入到父元素内
+        */
+        var oWrap = document.querySelector('.wrap');
+        var oP = oWrap.querySelectorAll('.des');
+        console.log(oP);
+        // 拷贝 元素.cloneNode()
+        var copyP = oP[0].cloneNode();
+        copyP.innerHTML = '11111';
+        // 父元素.insertBefore(B,A) 插入元素 在子元素前插入
+        oWrap.insertBefore(copyP, oP[0]);
+        console.log(copyP, oWrap);
+    </script>
+</body>
+
+</html>

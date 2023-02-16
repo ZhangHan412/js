@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="text">
+        <p class="des">123213</p>
+        <p class="des">123213</p>
+        <p class="des">123213</p>
+        <p class="des">123213</p>
+        <p class="des">123213</p>
+        <p class="price">111111</p>
+    </div>
+    <script>
+        /***
+         * 创建标签 createElement('标签名')
+         * 添加标签 appendChild(创建标签的对象名)
+        */
+        var oText = document.querySelector('.text')
+        var oWrap = document.createElement('span');
+        // 给新创建的标签添加 类名
+        oWrap.className = 'oSpan';
+        // 将创建的新标签添加到 body 中
+        document.body.appendChild(oWrap);
+        // 获取创建的元素
+        var oSpan = document.querySelector('.oSpan');
+        // 给新创建的元素添加样式以及内容
+        oSpan.innerHTML = '123123123123';
+        oSpan.style.color = 'red';
+        console.log(oSpan);
+        // 将创建的标签添加到 oText 中
+        oText.appendChild(oWrap);
+        console.log(oText);
+
+        /***
+         * 以字符串的形式创建节点 批量添加的时候需要这样创建节点
+        */
+        var div = '<div class="aText">div</div>';
+        document.body.innerHTML = div;
+    </script>
+</body>
+
+</html>

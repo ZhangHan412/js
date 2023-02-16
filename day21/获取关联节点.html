@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="item">
+        <h3 class="title">111</h3>
+        <p class="des">222 </p>
+        <p class="price">333</p>
+    </div>
+
+    <div class="item">
+        <h3 class="title">111</h3>
+        <p class="des">222 </p>
+        <p class="des">333 </p>
+        <p class="des">444 </p>
+        <p class="des">555 </p>
+        <p class="price">666</p>
+    </div>
+
+    <script>
+        var oItem = document.querySelector('.item');
+        var oP = oItem.querySelector('p:nth-of-type(2)');
+        console.log(oP);
+        //获取item里的类名为price的p标签的内容
+        console.log(oP.parentNode.nextElementSibling.lastElementChild.innerText);
+
+        console.log(oP.parentNode.nextElementSibling.querySelector('p:nth-of-type(3)'));
+    </script>
+
+</html>

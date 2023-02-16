@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p id="title">123</p>
+    <p>321</p>
+    <p class="des">112233</p>
+    <p class="des">111</p>
+    <div id="wrap">
+        <p>123123123</p>
+    </div>
+    <script>
+        /***
+         * DOM API 节点对象选择器
+         * 
+         * getElementById 通过元素Id名称来获取元素
+         * 
+         * getElementsByTagName 通过标签名获取节点集合
+         * 该方法会把标签名相同的元素都获取到
+         * 我们也可以通过下标值来获取相同标签名中的某个元素
+         * 
+         * getElementsByClassName 通过类型来获取元素
+         * 打印出的结果也是一个集合 可以获取长度 获取下标值
+         * 该方法为非标准
+        */
+        var p = document.getElementById('title');
+        console.log(p);
+        var aP = document.getElementsByTagName('p')
+        console.log(aP);
+
+        var des = document.getElementsByClassName('des')
+        console.log(des);
+
+        // querySelector 全新的方法 以上三种获取方式都可以
+        // 该方法的获取元素的时候 需要与 css 写法一致
+        // 该方法是单项选择器 只会获取符合选择器条件的第一个
+        var newP = document.querySelector('#title')
+        var newP1 = document.querySelector('.des')
+        console.log(newP1);
+
+        // querySelectorAll 该方法可以获取所有该类型的元素
+        // 打印结果同样为一个集合
+        var newP2 = document.querySelectorAll('.des')
+        console.log(newP2);
+
+        // 获取 子节点
+        var wrap = document.querySelector('#wrap');
+        var p = wrap.querySelector('p');
+        console.log(p);
+    </script>
+</body>
+
+</html>

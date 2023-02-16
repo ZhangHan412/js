@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /***
+         * lastIndexOf
+         * lastIndexOf 和 indexOf区别 lastIndexOf是从后往前查
+        */
+        var arr=[1,2,3,4,5];
+        console.log(arr.lastIndexOf(5));
+
+        /****
+         * 将重复的元素输出为一个新数组
+         * 
+         * 
+        */
+       var arr1=[1,2,3,1,2,3,4,5,6,4];
+       function duplicates() {
+           var newArr=[];
+           for(var i=0;i<arr1.length;i++){
+               if(arr1.indexOf(arr1[i]) !== arr1.lastIndexOf(arr1[i]) && newArr.indexOf(arr1[i]) === -1){
+                   newArr.push(arr1[i]);
+               }
+           }
+           return newArr;
+       }
+       console.log(duplicates(arr1));
+       /***
+        * reverse 反转数组
+        * 修改原数组但不创建新数组
+       */
+      console.log(arr.reverse());
+
+      /***
+       * splice 提供了灵活的 删除 添加 替换 数组项的功能
+       * 删除或者替换现有元素或者原地添加新的元素来修改数组
+       * 修改后生成一个新的数组
+      */
+     var arr2=[1,2,3,4,5];
+     //参数 第一个从那开始截取 第二个截取多少位 第三个参数 替换 
+    //  console.log(arr2.splice(2));
+     console.log(arr2.splice(1,3,'5'));
+     console.log(arr2);
+
+     /***
+      * 移除数组 arr3 中所有值与 item 相等的值 直接在原数组上操作 并将结果返回
+     */
+    var arr3=[1,2,3,4,5,4,2,1,6,7]
+    //filter 过滤方法
+    function arrFun(arr3,arrItem) {
+        return arr3.filter(function (item,index,arr) {
+            return arrItem !== item
+        })
+    }
+    arrFun(arr3,2);
+    console.log(arrFun(arr3,2));
+    // splice 方法
+    function ArrFun(arrItem) {
+        for(var i=0;i<arr3.length;i++){
+            if(arr3[i] === arrItem){
+                arr3.splice(i,1);
+            }
+        }
+    }
+    ArrFun(2)
+    console.log(arr3);
+
+    /***
+     * includes 判断是否包含 判断方式未严格模式 === 
+    */
+   var arr4=[1,2,3,4];
+   console.log(arr4.includes(2));
+
+   /***
+    * flat 数组扁平化 降维
+    * 参数为几就将为多少维数组
+   */
+  var arr5=[1,2,[1,2,[3,4,[5]]]]
+  console.log(arr5.flat(2));
+    </script>
+</body>
+</html>

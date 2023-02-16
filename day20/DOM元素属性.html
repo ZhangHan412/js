@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img class="imgClass" id="imgId" style="width: 100px;height: 100px;background-color: aqua;">
+    <ul class="list">
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+    </ul>
+    <script>
+        /***
+         * 标签对象属性
+        */
+        var img = document.querySelector('img')
+        // 标签属性 可以读取也可以修改
+        console.log(img);
+        console.log(img.className);//获取类名
+        console.log(img.id);//获取id名
+        img.className = 'classNewName';
+        console.log(img.className);
+        console.log(img);
+
+
+        /***
+         * 获取DOM元素的一种命名规范
+         * 前缀 o only
+         * 前缀 a all
+        */
+        var oList = document.querySelector('.list')
+        var aLi = document.querySelectorAll('.list li');
+        console.log(oList, aLi);
+        console.log(aLi[1], aLi.length);
+    </script>
+</body>
+
+</html>

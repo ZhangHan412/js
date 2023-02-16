@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wrap {
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            height: 320px;
+            box-shadow: 0 0 4px #333;
+
+        }
+
+        .tab {
+            display: flex;
+            background-color: #666;
+        }
+
+        .tab li {
+            width: 80px;
+            height: 45px;
+            line-height: 45px;
+            font-size: 20px;
+            text-align: center;
+            color: #fff;
+            background-color: #666;
+            border-right: 2px solid orange;
+            cursor: pointer;
+        }
+
+        .tab li:hover {
+            opacity: .8;
+        }
+
+        .content {
+            position: relative;
+        }
+
+        .content li {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 220px;
+            background-color: #368;
+            color: #fff;
+            font-size: 30px;
+        }
+
+        .tab li.on {
+            background-color: #fff;
+            color: orange;
+            font-weight: 700;
+        }
+
+        .content li.active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <ul class="tab">
+            <li class="on">图片</li>
+            <li>专栏</li>
+            <li>热点</li>
+        </ul>
+        <ul class="content">
+            <li class="active">我是图片的内容</li>
+            <li>我是专栏的内容</li>
+            <li>我是热点的内容</li>
+        </ul>
+    </div>
+    <script>
+        var oTab = document.querySelector('.tab');
+        var aOn = oTab.querySelectorAll('li');
+
+        var oContent = document.querySelector('.content');
+        var aActive = oContent.querySelectorAll('li');
+
+        var index = 0;
+        for (var i = 0; i < aOn.length; i++) {
+            (function (i) {
+                aOn[i].onclick = function () {
+                    // // 排他思想
+                    // for (var j = 0; j < aOn.length; j++) {
+                    //     aOn[j].className = '';
+                    // }
+                    aOn[index].className = '';
+                    index = i;
+                    aOn[index].className = 'on';
+                }
+            })(i)
+        }
+    </script>
+</body>
+
+</html>

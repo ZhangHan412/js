@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /***
+         * map方法
+         * 该方法创建一个数组，其结果是该数组中的每个元素是调用一次提供的函数后的返回值
+         * 
+         * 说白了 Map就是用它返回一个新数组 新数组中的每一项都是原数组中每一项做了特定处理后
+         * 产生的结果
+        */
+        var arr=[1,2,3,4,5];
+        var newArr=arr.map(function (item,index,arr) {
+            return item*2;
+        })
+        console.log(newArr);
+
+        /***
+         * filter 过滤
+         * 作用:
+         *  根据指定条件过滤数组
+        */
+        //获取数组中小于 3 的项
+        var arr1=[1,2,3,4];
+        //没有使用过滤的操作
+        var arr2=[]
+        for(var i=0;i<arr1.length;i++){
+            if(arr1[i]<3){
+                arr2.push(arr1[i])
+            }
+        }
+        console.log(arr2);
+        //利用 过滤 filter
+        var result=arr1.filter(function (item,index,arr1){
+            return item < 3;
+        })  
+        console.log(result);
+    </script>
+</body>
+</html>

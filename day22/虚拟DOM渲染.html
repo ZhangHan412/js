@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+          将这个虚拟节点数据 具象化成实际标签 
+        */
+        var element = {
+            tagName: 'div',
+            id: 'header',
+            className: 'title fw400 c666 fz28',
+            contentText: '我是一个header标签',
+            children: [
+                {
+                    tagName: 'h1',
+                    id: '',
+                    className: 'logo',
+                    contentText: '我是logo',
+                    children: []
+                },
+                {
+                    tagName: 'ul',
+                    id: '',
+                    className: 'nav',
+                    contentText: '',
+                    children: [
+                        {
+                            tagName: 'li',
+                            id: '',
+                            className: 'list',
+                            contentText: '导航1',
+                            children: []
+                        },
+                        {
+                            tagName: 'li',
+                            id: '',
+                            className: 'list',
+                            contentText: '导航2',
+                            children: []
+                        },
+                    ]
+                }
+            ]
+        }
+        // 创建父元素 div 
+        var oDiv = document.createElement('div');
+        document.body.appendChild(oDiv);
+        oDiv.id = 'header';
+        oDiv.className = 'title fw400 c666 fz28';
+        oDiv.innerHTML = '我是一个header标签';
+
+        //创建一级子元素
+        var oH1 = document.createElement('h1');
+        oH1.className = 'logo';
+        oH1.innerHTML = '我是logo';
+        oDiv.appendChild(oH1);
+
+        //创建二级子元素
+        var oUl = document.createElement('ul');
+        oUl.className = 'nav';
+        oDiv.appendChild(oUl);
+
+        // 创建二级子元素的子元素
+        var aLi1 = document.createElement('li');
+        var aLi2 = document.createElement('li');
+        aLi1.className = 'list';
+        aLi1.innerHTML = '导航1';
+        aLi2.className = 'list';
+        aLi2.innerHTML = '导航2';
+        oUl.appendChild(aLi1);
+        oUl.appendChild(aLi2)
+        console.log(oDiv);
+    </script>
+</body>
+
+</html>

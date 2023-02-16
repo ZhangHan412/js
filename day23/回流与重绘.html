@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border: 2px solid red;
+            background-color: #368;
+            position: absolute;
+            /*当给行内元素添加定位的时候会将该元素隐式转换为块元素*/
+        }
+
+        div {
+            float: left;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border: 2px solid red;
+            background-color: #368;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        回顾 
+        页面里的渲染过程 都是需要确定几个基本点
+        1.在哪里渲染
+        2.渲染的范围
+        3.渲染的内容
+     -->
+    <span></span>
+    <!-- <div></div>
+    <div></div>
+    <div></div>
+    <div></div> -->
+    <script>
+        /***
+         *  动态渲染三个div
+         * 只要页面内容发生改变就会导致页面 重绘
+         * 
+         * createDocumentFragment 文档片段 创建的标签为虚拟标签
+        */
+        createDiv(3, 'div')
+        function createDiv(num, ele) {
+            var creDiv;
+            for (var i = 0; i < num; i++) {
+                creDiv = document.createElement(ele);
+                document.body.appendChild(creDiv);
+            }
+        }
+    </script>
+</body>
+
+</html>

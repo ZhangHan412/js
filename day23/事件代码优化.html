@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 400px;
+            height: auto;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: #368;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./h1.jpg" alt="">
+    <div>出现</div>
+    <button>点击</button>
+    <script>
+        // 点击图片切换
+        var oImg = document.querySelector('img');
+        oImg.onclick = function () {
+            var index = ~~(Math.random() * 3) + 1;
+            // oImg.src = './h' + index + '.jpg';
+            oImg.src = `./h${index}.jpg`;
+        }
+
+        // 点击div切换显示隐藏
+        var oDiv = document.querySelector('div');
+        var oBtn = document.querySelector('button');
+        var show = true;
+        // oBtn.onclick = function () {
+        //     if (show) {
+        //         oDiv.style.display = 'none';
+        //         show = false;
+        //     } else {
+        //         oDiv.style.display = 'block';
+        //         show = true;
+        //     }
+        // }
+
+        // 优化
+        oBtn.onclick = function () {
+            var dis = 'none'
+            if (show) {
+                dis = 'block';
+            };
+            show = !show;
+            oDiv.style.display = dis;
+        }
+    </script>
+</body>
+
+</html>

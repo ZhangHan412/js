@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="wrap">
+        <p class="des">删除</p>
+        <p class="des">不删除</p>
+    </div>
+    <script>
+        /***
+         * removeChild 删除子元素 父元素.removeChild(子元素)
+         * remove() 元素自动删除
+        */
+        var oWrap = document.querySelector('#wrap');
+        var aDes = oWrap.querySelectorAll('.des');
+
+        oWrap.removeChild(aDes[0]);
+        aDes[0].remove();
+    </script>
+</body>
+
+</html>
