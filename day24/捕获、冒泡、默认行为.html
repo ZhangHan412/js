@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+        .child {
+            width: 100px;
+            height: 100px;
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="child"></div>
+    </div>
+    <script>
+        /***
+         * 事件的三个阶段
+         * 1.捕获阶段 html ==> body ==> 元素
+         * 2.当前阶段
+         * 3.冒泡阶段 元素 ==>  body ==> html
+         * 事件会由最外层向内进行捕获传递 由外到内
+         * 事件传递到最低层后 会进行冒泡 由内到外
+         * 事件的调用是在冒泡的当前阶段调用的 捕获阶段不会调用 与 栈 的存储方式类似
+         * 
+         * preventDefault() 阻止默认行为 
+         * 针对 a 标签的href的值设置为 jsvascript:; 由js接管href的行为
+         * 
+         * return false 阻止冒泡 
+         * 
+         * stopPropagation() 阻止冒泡 新版
+        */
+        var oFather = document.querySelector('.father');
+        var oChild = oFather.querySelector('.child');
+
+        oFather.onclick = function () {
+            console.log('father');
+        };
+        oChild.onclick = function (e) {
+            e.stopPropagation();
+            console.log('child');
+        };
+    </script>
+</body>
+
+</html>

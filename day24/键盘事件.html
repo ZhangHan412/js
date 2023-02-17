@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            outline: none;
+            width: 240px;
+            height: 45px;
+            margin-top: 100px;
+            padding: 4px 8px;
+            border: 2px solid #222;
+            line-height: 45px;
+            font-size: 18px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <input class="input" type="text" name="userName">
+    <script>
+
+        /***
+         * 在input中输入账号 不符合要求边框为红色 符合要求边框为绿色
+        */
+        /***
+         * onkeydown 用户按下按键 但是值还没有正式被输入框录入
+         * onkeyup 某个键被松开
+         * onkeypress 键盘按下并松开
+         * oninput 输入框里有内容就有响应
+         * oninput 输入框有输入的时候触发 响应输入法
+         * onchange 失去焦点的时候 input的value如果发生了改变 
+        */
+        var oInput = document.querySelector('.input');
+
+        oInput.onkeydown = function () {
+            console.log('1111')
+            var len = this.value.length;
+            var color = 'red';
+            if (len >= 6 && len <= 20) {
+                color = 'green';
+            }
+            this.style.borderColor = color;
+        }
+
+        oInput.onkeyup = function () {
+            console.log('22222')
+            var len = this.value.length;
+            var color = 'red';
+            if (len >= 6 && len <= 20) {
+                color = 'green';
+            }
+            this.style.borderColor = color;
+        }
+
+        oInput.onkeypress = function () {
+            console.log('3333')
+            var len = this.value.length;
+            var color = 'red';
+            if (len >= 6 && len <= 20) {
+                color = 'green';
+            }
+            this.style.borderColor = color;
+        }
+
+        oInput.oninput = function () {
+            var len = this.value.length;
+            var color = 'red';
+            if (len >= 6 && len <= 20) {
+                color = 'green';
+            }
+            this.style.borderColor = color;
+        }
+
+        oInput.onchange = function () {
+            var len = this.value.length;
+            console.log('444')
+            var color = 'red';
+            if (len >= 6 && len <= 20) {
+                color = 'green';
+            }
+            this.style.borderColor = color;
+        }
+
+
+    </script>
+</body>
+
+</html>
