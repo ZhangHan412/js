@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+        }
+
+        .banner {
+            width: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 0 8px #333;
+
+        }
+
+        .list {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            position: absolute;
+            bottom: 10px;
+            width: 380px;
+        }
+
+        .list span {
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            background-color: orange;
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .btn-wrap span {
+            user-select: none;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 40px;
+            height: 85px;
+            line-height: 85px;
+            font-size: 32px;
+            color: #fff;
+            text-align: center;
+            background-color: rgba(0, 0, 0, .4);
+            cursor: pointer;
+        }
+
+        .btn-wrap span:hover {
+            background-color: rgba(0, 0, 0, .8);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <img class="img" src="./h1.jpg" width="500" height="375">
+        <div class="list">
+            <span>1</span>
+            <span>2</span>
+            <span>3</span>
+            <span>4</span>
+        </div>
+        <div class="btn-wrap">
+            <span class="prev">&lt;</span>
+            <span class="next">&gt;</span>
+        </div>
+    </div>
+    <script>
+
+        var oImg = document.querySelector('.img');
+        var oList = document.querySelector('.list');
+        var btnPrev = document.querySelector('.prev');
+        var btnNext = document.querySelector('.next');
+        var index = 0;
+        var count = 4;
+
+        oList.onclick = function (e) {
+            console.log(e);
+            // 判断是不是点的 span
+            if (e.target.tagName.toLowerCase() === 'span') {
+                oImg.src = `./h${e.target.innerText}.jpg`;
+            }
+        }
+        // 右按钮
+        btnNext.onclick = function () {
+            index++;
+            if (index > count.length) {
+                oImg.src = `./h${count[0]}.jpg`;
+                index = 0;
+            } else {
+                oImg.src = `./h${index}.jpg`;
+            }
+        }
+        //左按钮
+        btnPrev.onclick = function () {
+            index--;
+            if (index < 1) {
+                oImg.src = `./h${count[count.length - 1]}.jpg`;
+                index = count[count.length - 1];
+                console.log(index);
+            } else {
+                oImg.src = `./h${index}.jpg`;
+                console.log(index);
+            }
+        }
+    </script>
+</body>
+
+</html>

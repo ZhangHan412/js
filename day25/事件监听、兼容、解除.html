@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="show">
+        123
+    </div>
+    <script>
+        /****
+         * on 绑定事件写法 
+         * DOM.on+'事件类型'=事件处理函数
+         * 
+         * DOM.addEventListener(eventType,callback,status)
+         * 
+         * eventType 事件类型
+         * callback 事件监听函数句柄
+         * status 事件捕获（true） 事件目标阶段 事件冒泡(默认 false) on绑定都是事件冒泡阶段
+         * 
+         * 解绑
+         * on写法 解绑 DOM.on+'eventType'=null;
+         * DOM.removeEventListener(事件,事件回调函数);
+         * 
+         * 兼容处理
+         * 
+         * DOM.attachEvent()
+        */
+        var oShow = document.querySelector('oShow');
+        function showHi() {
+            console.log('1231231231');
+        }
+        // 绑定
+        oShow.addEventListener('click', showHi, fasle);
+        // 解绑
+        oShow.removeEventListener('click', showHi)
+    </script>
+</body>
+
+</html>

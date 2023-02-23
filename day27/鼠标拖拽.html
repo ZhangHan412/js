@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* * {
+            margin: 0px;
+            padding: 0px;
+        } */
+
+        body {
+            position: relative;
+        }
+
+        .box {
+            position: fixed;
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            /* 改变鼠标 可以拖拽 */
+            cursor: move;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <script src="./common.js"></script>
+    <script>
+        /***
+         * 拖拽元素原理
+         * 1.被拖拽的元素需要被定位起来 通过元素的 top 和 left 值
+         * 实现元素的位移
+         * 
+         * 2.如何计算移动量
+         * 鼠标当前位置 x y - 鼠标按下的 x y = 移动量
+         * 
+         * 3.元素位置计算
+         * x=box原x位置+diffX
+         * y=box原y位置+diffY
+         * 
+         * 4.获取元素样式 获取原位置 getStyle(元素,'样式属性')
+         * parseInt() 转换数值
+         * 
+         * 5.失焦问题
+         * 监听document 防止监听oBox时鼠标移动过快无效
+         * 
+         * 锁死
+         * 当clientX 和 clientY 为负值的时候 手动锁死 isDown=false;
+         * 
+         * 6.限制移动范围
+         * 通常元素移动时不可超过浏览器可视区域
+         * left 最大不能大于 浏览器窗口宽度 - 元素自身宽度
+         * top 最大不能大于 浏览器窗口高度 - 元素自身高度
+         * 
+         * 浏览器宽度 window.innerWidth 不包括滚动条
+         * 浏览器高度 window.innerHeight 
+         * 
+         * 元素自身宽度 DOM.offsetWidth ===> 宽 + padding + border + 滚动条
+         * 元素自身高度 DOM.offsetHeight ===> 高 + padding + border + 滚动条
+         * 
+         * 之所以不用getStyle()获取元素宽高 
+         * 是因为 元素宽度 = 内边距 + 边框 + 外边距 没有滚动条
+        */
+
+        var oBox = document.querySelector('.box');
+        var start = {
+            x: 0,
+            y: 0,
+            left: 0,
+            top: 0
+        };
+        // 开关
+        var isDown = false;
+        // 鼠标按下
+        oBox.addEventListener('mousedown', function (e) {
+            start.x = e.clientX;
+            start.y = e.clientY;
+            isDown = true;
+            // 获取原位置
+            start.left = parseInt(getStyle(oBox, 'left'));
+            start.top = parseInt(getStyle(oBox, 'top'));
+        }, false)
+        // 鼠标移动
+        document.addEventListener('mousemove', function (e) {
+            if (isDown) {
+                // 偏移量
+                var diffX, diffY;
+                diffX = e.clientX - start.x;
+                diffY = e.clientY - start.y;
+                // _变量名 通常是对 长度变量的命名 以及 静态变量
+                var _top = diffY + start.top;
+                var _left = diffX + start.left;
+                var maxTop = window.innerHeight - oBox.offsetHeight;
+                var maxLeft = window.innerWidth - oBox.offsetWidth;
+
+                //限制 _top 和 _left
+                _top = Math.max(0, _top);
+                _top = Math.min(maxTop, _top);
+
+                _left = Math.max(0, _left);
+                _left = Math.min(maxLeft, _left);
+
+                oBox.style.top = _top + 'px';
+                oBox.style.left = _left + 'px';
+                // 超过可视区域 锁死
+                if (e.clientX < 0 || e.clientY < 0) {
+                    isDown = false;
+                }
+            }
+        }, false)
+        // 鼠标抬起
+        oBox.addEventListener('mouseup', function (e) {
+            isDown = false;
+        }, false)
+    </script>
+</body>
+
+</html>
